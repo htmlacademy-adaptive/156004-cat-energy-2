@@ -4,7 +4,8 @@
   @include font-settings($font-family-oswald, normal, 400, 20, 30);
   color: $text-color-secondary;
   text-transform: uppercase;
-  ::placeholder {
+
+  &::placeholder {
     color: rgba($text-color-secondary, 0.7);
   }
 }
