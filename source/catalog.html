@@ -17,7 +17,7 @@
   </head>
   <body class="page__body">
     <div class="page__container">
-      <header class="main-header">
+      <header class="main-header" data-test="header">
         <a class="main-header__logo" href="index.html" aria-label="CAT ENERGY — главная страница">
           <picture>
             <source media="(min-width: 1440px)" width="70" height="59" type="image/svg+xml" srcset="images/logo-icon-desk.svg">
@@ -48,7 +48,7 @@
         </nav>
       </header>
       <main class="main-container">
-        <section class="catalog">
+        <section class="catalog" data-test="catalog">
           <h1 class="catalog__title title title--xl">Каталог продукции</h1>
           <h2 class="visually-hidden">Основной список товаров</h2>
           <ul class="catalog__list">
@@ -227,7 +227,7 @@
             </li>
           </ul>
         </section>
-        <section class="catalog-secondary">
+        <section class="catalog-secondary" data-test="additional">
           <h2 class="catalog-secondary__title title">Дополнительные товары</h2>
           <ul class="catalog-secondary__list">
             <li class="catalog-secondary__item other-product">
@@ -289,7 +289,7 @@
     </div>
     <footer class="main-footer">
       <h2 class="visually-hidden">Контакты и&nbsp;информация</h2>
-      <div class="main-footer__address address">
+      <div class="main-footer__address address" data-test="contacts">
         <address class="address__wrapper address__wrapper--catalog">
           <p class="address__invite">Приглашаем к&nbsp;сотрудничеству дилеров!</p>
           <p class="address__text">ул. Большая Конюшенная, д. 19/8 <span>Санкт-Петербург</span></p>
@@ -306,24 +306,24 @@
           </picture>
         </noscript>
       </div>
-      <div class="main-footer__contacts contacts">
+      <div class="main-footer__contacts contacts" data-test="footer">
         <a class="contacts__logo-link" href="index.html">
           <img class="contacts__logo-text" src="images/logo-text.svg" width="128" height="24" alt="Логотип Cat Energy.">
         </a>
         <span class="visually-hidden">Список социальных сетей:</span>
         <ul class="contacts__social-list">
           <li class="contacts__social-item">
-            <a class="contacts__social-link contacts__social-link--vk" href="#" target="_blank" rel="noopener noreferrer">
+            <a class="contacts__social-link contacts__social-link--vk" href="https://vk.com/htmlacademy" target="_blank" rel="noopener noreferrer">
               <span class="visually-hidden">Вконтакте</span>
             </a>
           </li>
           <li class="contacts__social-item">
-            <a class="contacts__social-link contacts__social-link--youtube" href="#" target="_blank" rel="noopener noreferrer">
+            <a class="contacts__social-link contacts__social-link--youtube" href="https://www.youtube.com/user/htmlacademyru" target="_blank" rel="noopener noreferrer">
               <span class="visually-hidden">Ютуб</span>
             </a>
           </li>
           <li class="contacts__social-item">
-            <a class="contacts__social-link contacts__social-link--tg" href="#" target="_blank" rel="noopener noreferrer">
+            <a class="contacts__social-link contacts__social-link--tg" href="https://t.me/htmlacademy" target="_blank" rel="noopener noreferrer">
               <span class="visually-hidden">Телеграм</span>
             </a>
           </li>
