@@ -1,49 +1,110 @@
 /* здесь используйте классы для header */
 
+/* Настройка "float: inline-start" нужна для игнорирования header_ом фонового изображения с котиком */
+
 .main-header {
   z-index: 9;
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr minmax(49px, auto);
   align-items: center;
-  padding: 13px 20px 15px;
 
   @media (min-width: $tablet-width) {
-    display: grid;
-    align-items: start;
-    grid-template-columns: 174px 1fr;
-    padding: 25px 30px;
+    grid-template-columns: auto 1fr;
+    padding: 25px 34px 25px 30px;
   }
 
   @media (min-width: $desktop-width) {
-    grid-template-columns: 610px 610px;
+    grid-template-columns: 250px 970px;
     justify-content: center;
-    padding: 55px 110px 30px;
+    padding: 55px 0 30px;
+
+    &:has(.main-nav__list--light) {
+      grid-template-columns: 610px 610px;
+    }
+  }
+
+  &--float {
+    @media (min-width: $desktop-width) {
+      width: 100%;
+      float: inline-start;
+    }
   }
 }
+
+/* -------------------------------------------------------- */
+/* Логотип */
+/* -------------------------------------------------------- */
 
 .main-header__logo {
   display: grid;
   grid-template-columns: 33px 1fr;
-  flex-grow: 1;
   align-items: center;
+  margin: 13px 0 14px 20px;
+  pointer-events: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
 
   @media (min-width: $tablet-width) {
-    grid-template-columns: 60px 1fr;
-    flex-grow: 0;
-    gap: 13px;
+    grid-template-columns: minmax(60px, auto) 1fr;
+    align-self: start;
+    column-gap: 13px;
+    margin: 0 30px 0 0;
   }
 
   @media (min-width: $desktop-width) {
-    grid-template-columns: 70px 1fr;
-    gap: 14px;
+    grid-template-columns: minmax(70px, auto) 1fr;
+    justify-self: start;
+  }
+}
+
+.main-header__logo-icon,
+.main-header__logo-text {
+  display: block;
+  pointer-events: auto;
+}
+
+picture:has(.main-header__logo-icon),
+.main-header__logo-icon {
+  width: 33px;
+  height: 38px;
+  margin-right: 4px;
+
+  @media (min-width: $tablet-width) {
+    width: 60px;
+    height: 50px;
+    margin-right: 0;
+    justify-self: start;
   }
 
-  & picture:last-child,
-  .main-header__logo-text {
-    justify-self: center;
+  @media (min-width: $desktop-width) {
+    width: 70px;
+    height: 59px;
+  }
+}
 
-    @media (min-width: $desktop-width) {
-      justify-self: start;
-    }
+/* Выравнивание текстовой части логотипа */
+
+picture:has(.main-header__logo-text),
+.main-header__logo-text {
+  justify-self: center;
+  width: 101px;
+  height: 18px;
+  margin-right: 4px;
+
+  @media (min-width: $tablet-width) {
+    margin-right: 0;
+    justify-self: start;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 118px;
+    height: 21px;
   }
 }

@@ -1,1 +1,10 @@
 /* здесь используйте классы для page */
+
+.page__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.page__container {
+  flex: 1;
+}

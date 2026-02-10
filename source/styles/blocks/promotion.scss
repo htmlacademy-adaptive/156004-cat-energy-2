@@ -2,36 +2,85 @@
 
 .promotion {
   display: grid;
-  padding: 40px 20px;
 }
 
+/* -------------------------------------------------------- */
+/* Заголовок блока */
+/* -------------------------------------------------------- */
+
 .promotion__title {
-  margin-bottom: 32px;
+  display: grid;
+  grid-template-columns: 20px auto 1fr;
+  padding-top: 40px;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    background-image: linear-gradient(to bottom, transparent 50%, $border-color-accent 50%, transparent calc(50% + 2px));
+  }
+
+  &::before {
+    margin-right: 40px;
+  }
+
+  &::after {
+    margin-left: 40px;
+  }
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: 70px auto 1fr;
+    padding-top: 80px;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-template-columns: calc(50% - 610px) auto minmax(calc(50% - 610px), 1fr);
+    padding-top: 95px;
+  }
 }
+
+/* -------------------------------------------------------- */
+/* Описание */
+/* -------------------------------------------------------- */
 
 .promotion__text {
   @include font-settings ($font-family-oswald, normal, 400, 16, 24);
-  margin: 0 0 24px;
+  margin: 32px 20px 24px;
   text-align: center;
+
+  @media (min-width: $tablet-width) {
+    margin: 66px 68px 24px;
+    font-size: 24px;
+    line-height: 32px;
+  }
 
   @media (min-width: $desktop-width) {
     justify-self: center;
     max-width: 752px;
+    margin-top: 72px;
   }
 }
 
+/* -------------------------------------------------------- */
+/* Форма подписки */
+/* -------------------------------------------------------- */
+
 .promotion__subscribe {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  margin: 0 20px 40px;
   gap: 16px;
 
   @media (min-width: $tablet-width) {
-    flex-direction: row;
+    grid-template-columns: 1fr 256px;
+    gap: 0;
+    width: 632px;
+    margin: 0 auto 80px;
   }
 
   @media (min-width: $desktop-width) {
     justify-self: center;
     width: 752px;
+    margin-bottom: 104px;
   }
 }
 

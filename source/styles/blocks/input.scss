@@ -4,8 +4,30 @@
   @include font-settings($font-family-oswald, normal, 400, 20, 30);
   color: $text-color-secondary;
   text-transform: uppercase;
+  padding: 12px;
+  outline: none;
+  border: 1px solid $input-color-primary;
+  border-radius: 0;
 
   &::placeholder {
     color: rgba($text-color-secondary, 0.7);
+  }
+
+  &:hover {
+    border-color: $input-color-primary-bold;
+  }
+
+  &:focus-visible {
+    padding: 11px;
+    border: 2px solid $input-color-secondary;
+  }
+
+  &:user-invalid {
+    padding: 11px;
+    border: 2px solid $input-color-error;
+  }
+
+  &:disabled {
+    opacity: 0.6;
   }
 }

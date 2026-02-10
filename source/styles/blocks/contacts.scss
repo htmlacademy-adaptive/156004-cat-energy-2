@@ -3,62 +3,87 @@
 .contacts {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   padding: 40px 20px;
   background-color: $bg-color-secondary;
 
   @media (min-width: $tablet-width) {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 180px 1fr 180px;
+    justify-content: space-between;
     align-items: center;
-    padding: 55px 30px;
+    gap: 30px;
+    padding: 53px 30px;
   }
 
   @media (min-width: $desktop-width) {
-    display: grid;
-    grid-template-columns: 250px 680px 250px;
+    grid-template-columns: 240px 680px 240px;
     justify-content: center;
-    padding: 66px 0;
+    padding: 65px 0;
   }
 }
 
 .contacts__logo-link {
-  &::after {
-    content: "";
-    display: block;
-    height: 1px;
-    width: 100%;
-    margin: 20px 0 0;
-    background-color: $border-color-secondary;
+  width: 128px;
+  height: 24px;
+  margin-bottom: 19px;
+  align-self: center;
 
-    @media (min-width: $tablet-width) {
-      content: none;
-    }
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  @media (min-width: $tablet-width) {
+    flex-shrink: 0;
+    margin: 0;
   }
 }
 
 .contacts__logo-text {
   display: block;
   justify-self: center;
+  width: 128px;
+  height: 24px;
 }
 
 .contacts__social-list {
   display: flex;
-  gap: 24px;
-  margin: 0 auto;
-  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 0 19px;
+  padding: 11px 0;
   list-style: none;
+  border-top: 1px solid $border-color-secondary;
+  border-bottom: 1px solid $border-color-secondary;
+
+  @media (min-width: $tablet-width) {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
 }
 
-.contacts__social-item {
+.contacts__social-link {
   &::before {
     content: "";
     display: block;
-    width: 28px;
-    height: 22px;
+    width: 52px;
+    height: 40px;
     background-color: $icon-color-secondary;
     mask-position: center;
     mask-repeat: no-repeat;
     mask-size: 28px 22px;
+  }
+
+  &:hover::before {
+    background-color: $icon-color-accent;
+  }
+
+  &:active::before {
+    background-color: rgba($icon-color-accent, 0.3);
   }
 
   &--vk::before {
@@ -74,39 +99,41 @@
   }
 }
 
-.contacts__dev {
-  &::before {
-    content: "";
-    display: block;
-    height: 1px;
-    width: 100%;
-    margin: 0 0 20px;
-    background-color: $border-color-secondary;
-
-    @media (min-width: $tablet-width) {
-      content: none;
-    }
-  }
-}
-
-.contacts__dev-name {
+.contacts__dev-link {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
   line-height: 20px;
   color: $text-color-secondary;
-  text-decoration: none;
 
   &::after {
     content: "";
     display: block;
+    flex-shrink: 0;
     width: 27px;
     height: 34px;
+    margin-left: 23px;
     mask-image: url("../../icons/stack.svg#logo-html-academy");
     background-color: $icon-color-secondary;
     mask-repeat: no-repeat;
     mask-size: 27px 34px;
     mask-position: center;
+  }
+
+  &:hover::after {
+    background-color: $icon-color-accent;
+  }
+
+  &:active {
+    color: rgba($text-color-secondary, 0.3);
+
+    &::after {
+      background-color: rgba($icon-color-accent, 0.3);
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    justify-content: end;
   }
 }

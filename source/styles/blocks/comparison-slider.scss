@@ -4,27 +4,84 @@
   position: relative;
 }
 
-.comparison-slider__image {
+/* -------------------------------------------------------- */
+/* Фотографии */
+/* -------------------------------------------------------- */
+
+.comparison-slider__image,
+picture:has(.comparison-slider__image) {
   position: absolute;
+  width: 280px;
+  height: 256px;
+
+  @media (min-width: $tablet-width) {
+    width: 560px;
+    height: 512px;
+  }
 }
 
-.comparison-slider__handle {
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  margin: 0;
-  background-color: $bg-color-primary;
-  border-radius: 50%;
-  border: 2px solid $border-color-primary;
+/* -------------------------------------------------------- */
+/* Ручка для переключения */
+/* -------------------------------------------------------- */
 
+.comparison-slider__handle {
+  position: absolute;
+  display: flex;
+  left: calc(50% - 2px);
+  height: 100%;
+  width: 4px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: $button-color-secondary;
+  border: none;
+  border-radius: 2px;
+
+  &::before,
   &::after {
     content: "";
+    position: absolute;
     display: block;
-    height: 18px;
-    mask-image: url("../../icons/stack.svg#arrows-opposite");
+    width: 40px;
+    height: 40px;
+  }
+
+  &::before {
+    display: block;
+    background-color: $bg-color-primary;
+    border-radius: 50%;
+    border: 2px solid $button-color-secondary;
+  }
+
+  &::after {
     background-color: $icon-color-secondary;
-    mask-repeat: no-repeat;
-    mask-position: center;
+    mask-image: url("../../icons/stack.svg#arrows-opposite");
     mask-size: 24px 18px;
+    mask-position: center;
+    mask-repeat: no-repeat;
+  }
+
+  &:hover,
+  &:hover::after {
+    background-color: $bg-color-accent;
+  }
+
+  &:hover::before {
+    border-color: $border-color-accent;
+  }
+
+  &:active,
+  &:active::after {
+    background-color: rgba($bg-color-accent, 0.6);
+  }
+
+  &:active::before {
+    border-color: rgba($border-color-accent, 0.6);
+  }
+
+  &:disabled,
+  &:disabled::before,
+  &:disabled::after {
+    opacity: 0.6;
   }
 }

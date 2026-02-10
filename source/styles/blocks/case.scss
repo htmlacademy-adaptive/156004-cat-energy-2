@@ -3,15 +3,14 @@
 .case {
   display: flex;
   flex-direction: column;
-  column-gap: 20px;
   padding: 25px 20px 40px;
   background: linear-gradient($bg-color-secondary-bold);
 
   @media (min-width: $tablet-width) {
     display: grid;
-    grid-template-columns: 367px 1fr;
+    grid-template-columns: 1fr 175px;
     column-gap: 40px;
-    padding: 45px 30px 100px;
+    padding: 45px 30px 101px;
     background-size: 100% 462px;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -22,41 +21,66 @@
     grid-template-rows: repeat(5, auto);
     column-gap: 224px;
     justify-content: center;
-    padding: 70px 0 75px;
+    padding: 69px 0 75px;
+    background-image: linear-gradient(to bottom, transparent 205px, $bg-color-secondary-bold 205px);
+    background-size: 100%;
   }
 }
 
+/* -------------------------------------------------------- */
+/* Заголовок блока  */
+/* -------------------------------------------------------- */
+
 .case__title {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  line-height: 40px;
 
   @media (min-width: $tablet-width) {
     grid-column: 1/-1;
+    margin-bottom: 60px;
+    line-height: 60px;
   }
 
   @media (min-width: $desktop-width) {
     grid-column: 1/2;
+    margin-bottom: 146px;
   }
 }
 
+/* -------------------------------------------------------- */
+/* Описание */
+/* -------------------------------------------------------- */
+
 .case__text {
-  margin: 0;
+  margin: 0 0 20px;
   color: $text-color-secondary;
 
   @media (min-width: $tablet-width) {
     grid-column: 1/-1;
+    margin-bottom: 55px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   @media (min-width: $desktop-width) {
     grid-column: 1/2;
+    margin-bottom: 69px;
   }
 }
 
+/* -------------------------------------------------------- */
+/* Список с примером снижения вес/время */
+/* -------------------------------------------------------- */
+
 .case__list {
-  margin: 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 32px;
+  margin: 0;
 
   @media (min-width: $tablet-width) {
+    display: flex;
+    gap: 43px;
     grid-column: 1/2;
   }
 
@@ -66,15 +90,29 @@
 }
 
 .case__item {
-  flex: 1;
   text-align: center;
+  overflow-wrap: anywhere;
+
+  @media (min-width: $tablet-width) {
+    min-width: 162px;
+  }
 }
 
 .case__number {
-  padding: 14px 20px 18px;
+  padding: 14px 20px 16px;
   text-transform: uppercase;
   border: 1px solid $border-color-secondary-bold;
   border-radius: 3px;
+
+  @media (min-width: $tablet-width) {
+    padding-bottom: 20px;
+    font-size: 30px;
+    line-height: 37px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-bottom: 18px;
+  }
 }
 
 .case__description {
@@ -87,32 +125,75 @@
   line-height: 12px;
   color: $text-color-secondary;
   background-color: $bg-color-secondary-bold;
-}
-
-.case__text-conclusion {
-  font-family: $font-family-oswald;
-  line-height: 20px;
-  text-align: center;
 
   @media (min-width: $tablet-width) {
-    grid-column: 2/3;
+    margin: 0 9px;
+    padding: 0 9px;
+    font-size: 14px;
+    line-height: 14px;
+    background-color: $bg-color-primary;
   }
 
   @media (min-width: $desktop-width) {
-    grid-column: 1/2;
+    background-color: $bg-color-secondary-bold;
   }
 }
 
+/* -------------------------------------------------------- */
+/* Текст-подытоживание */
+/* -------------------------------------------------------- */
+
+.case__text-conclusion {
+  margin: 10px 0 20px;
+  font-family: $font-family-oswald;
+  line-height: 20px;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media (min-width: $tablet-width) {
+    grid-column: 2/3;
+    margin: 11px 0 0;
+    font-size: 20px;
+    text-align: right;
+
+    span {
+      display: inline-block;
+      margin-top: 9px;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: none;
+    grid-column: 1/2;
+    margin: 46px auto 0 0;
+    text-align: left;
+
+    span {
+      display: inline;
+      margin: 0 0 0 64px;
+    }
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Слайдер */
+/* -------------------------------------------------------- */
+
 .case__slider {
-  min-height: 256px;
+  width: 280px;
+  height: 256px;
+  margin: 0 auto;
 
   @media (min-width: $tablet-width) {
     grid-column: 1/-1;
-    min-height: 512px;
+    width: 560px;
+    height: 512px;
+    margin: 91px auto 0;
   }
 
   @media (min-width: $desktop-width) {
     grid-column: 2/3;
     grid-row: 1/-1;
+    margin: 0 0 auto;
   }
 }

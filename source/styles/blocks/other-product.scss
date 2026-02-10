@@ -2,41 +2,114 @@
 
 .other-product {
   display: grid;
-  padding: 13px 0 19px;
+  padding: 13px 0 18px;
 
   @media (min-width: $tablet-width) {
     grid-template-columns: 1fr 1fr;
+    gap: 24px;
     padding: 26px 38px 28px;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-template-columns: repeat(2, 310px) 245px;
+    gap: 15px;
+    align-items: center;
+    padding: 15px 0 16px;
   }
 }
 
+/* -------------------------------------------------------- */
+/* Ссылка для заголовка */
+/* -------------------------------------------------------- */
+
+.other-product__link {
+  @media (min-width: $desktop-width) {
+    grid-column: 1/2;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Заголовок */
+/* -------------------------------------------------------- */
+
 .other-product__title {
-  margin-bottom: 13px;
   line-height: 16px;
   color: $text-color-secondary-bold;
   text-transform: uppercase;
 
   @media (min-width: $tablet-width) {
     grid-column: 1/2;
+    line-height: 20px;
   }
 }
 
+/* -------------------------------------------------------- */
+/* Список с описанием */
+/* -------------------------------------------------------- */
+
 .other-product__list {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
   justify-content: space-between;
-  margin-bottom: 15px;
+  padding: 13px 0 15px;
   font-size: 14px;
   line-height: 14px;
   color: $text-color-secondary;
 
+
   @media (min-width: $tablet-width) {
+    grid-template-columns: 1fr 74px;
     grid-column: 2/3;
-    justify-content: end;
+    padding: 0;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-template-columns: 1fr 65px;
+    margin-top: 3px;
+    grid-column: 2/3;
   }
 }
+
+/* Объем товара */
+
+.other-product__size {
+  @media (min-width: $tablet-width) {
+    text-align: right;
+  }
+
+  @media (min-width: $desktop-width) {
+    text-align: left;
+  }
+}
+
+
+.other-product__price {
+  margin: 0;
+  text-align: right;
+
+  @media (min-width: $desktop-width) {
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Кнопка "Заказать" */
+/* -------------------------------------------------------- */
 
 .other-product__button {
   @media (min-width: $tablet-width) {
     grid-column: 1/-1;
+    padding: 10px 20px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-column: 3/4;
+    align-self: center;
   }
 }

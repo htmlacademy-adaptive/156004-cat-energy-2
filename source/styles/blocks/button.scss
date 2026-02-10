@@ -3,16 +3,46 @@
 .button {
   @include font-settings($font-family-oswald, normal, 400, 16, 20);
   padding: 10px 20px;
+  align-content: center;
   background-color: $button-color-accent;
   color: $text-color-inverse;
   text-align: center;
-  text-decoration: none;
   text-transform: uppercase;
   border: none;
+
+  &:hover {
+    background-color: $button-color-accent-bold;
+  }
+
+  &:active {
+    color: rgba($text-color-inverse, 0.3);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  @media (min-width: $tablet-width) {
+    padding: 14px 26px;
+    font-size: 20px;
+    line-height: 26px;
+  }
 
   &--secondary {
     color: $text-color-secondary;
     background-color: $button-color-primary;
+
+    &:hover {
+      background-color: $button-color-primary-bold;
+    }
+
+    &:active {
+      color: $text-color-secondary;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+    }
   }
 
   &--lg {

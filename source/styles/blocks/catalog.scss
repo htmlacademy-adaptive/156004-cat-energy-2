@@ -8,23 +8,31 @@
   }
 }
 
+/* -------------------------------------------------------- */
+/* Заголовок блока */
+/* -------------------------------------------------------- */
+
 .catalog__title {
   padding: 27px 20px 0;
   border-top: 1px solid $border-color-secondary;
 
   @media (min-width: $tablet-width) {
-    padding: 65px 30px 84px;
+    padding: 40px 30px 84px;
     border: none;
   }
 
   @media (min-width: $desktop-width) {
-    padding: 74px 0 84px;
+    padding: 44px 0 84px;
   }
 }
 
+/* -------------------------------------------------------- */
+/* Список карточек товаров */
+/* -------------------------------------------------------- */
+
 .catalog__list {
   display: grid;
-  padding: 41px 0 0;
+  padding: 40px 0 0;
   margin: 0;
   list-style: none;
 
@@ -36,10 +44,14 @@
 
   @media (min-width: $desktop-width) {
     grid-template-columns: repeat(4, 1fr);
-    gap: 80px 63px;
+    gap: 63px 80px;
     padding: 0;
   }
 }
+
+/* -------------------------------------------------------- */
+/* Карточка товара */
+/* -------------------------------------------------------- */
 
 .catalog__item {
   border-top: 1px solid $border-color-secondary-subtler;
@@ -53,6 +65,7 @@
   border-bottom: 1px solid $border-color-secondary;
 
   @media (min-width: $tablet-width) {
-    border: none;
+    margin-top: 81px;
+    border: 2px solid $border-color-secondary-subtlest;
   }
 }

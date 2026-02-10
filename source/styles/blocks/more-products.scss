@@ -14,19 +14,70 @@
     background-image: url("../../icons/stack.svg#plus");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 30px;
+    background-size: cover;
+  }
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    flex-direction: column;
+    padding: 47px 37px 40px;
+
+    &::before {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 40px;
+      background-image: url("../../icons/stack.svg#plus-big");
+    }
   }
 }
 
+/* -------------------------------------------------------- */
+/* Заголовок" */
+/* -------------------------------------------------------- */
+
 .more-products__title {
-  margin-bottom: 8px;
+  margin: 0 0 8px;
   color: $text-color-tertiary;
   text-transform: uppercase;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 50px 23px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin: 0 0 26px;
+  }
 }
 
+/* -------------------------------------------------------- */
+/* Описание */
+/* -------------------------------------------------------- */
+
 .more-products__text {
-  margin: 0 0 21px;
+  margin: 0 0 20px;
   font-size: 12px;
   line-height: 16px;
   color: $text-color-secondary;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 40px auto;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin: 0 0 auto;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Кнопка "Показать еще" */
+/* -------------------------------------------------------- */
+
+.more-products__button {
+  @media (min-width: $tablet-width) {
+    padding: 10px 20px;
+    font-size: 16px;
+    line-height: 20px;
+  }
 }

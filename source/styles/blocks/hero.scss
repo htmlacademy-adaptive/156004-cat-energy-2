@@ -1,4 +1,7 @@
 /* здесь используйте классы для главного блока на index */
+
+/* Фоновое изображение с котиком */
+
 .hero {
   z-index: 0;
   position: relative;
@@ -35,10 +38,10 @@
   @media (min-width: $desktop-width) {
     &::before {
       content: "";
-      top: -144px;
       width: 50%;
       min-height: 694px;
       margin-left: auto;
+      margin-bottom: 0;
       background-image:
         linear-gradient(rgba($bg-color-accent, 0.85)),
         image-set(
@@ -48,10 +51,15 @@
           url("../../images/index/hero-bg-desk@1x.jpg") type("image/jpg") 1x,
         ),
         linear-gradient(#4d4c51, #3c3b40);
-      background-position: top left;
+      background-position: center, left bottom, center;
+      background-size: auto, auto, auto;
     }
   }
 }
+
+/* -------------------------------------------------------- */
+/* Контентная часть блока */
+/* -------------------------------------------------------- */
 
 .hero__wrapper {
   display: flex;
@@ -63,17 +71,22 @@
   @media (min-width: $tablet-width) {
     display: grid;
     grid-template-columns: 90px auto 90px;
-    padding: 45px 30px 0;
+    padding: 40px 30px 0;
     color: $text-color-primary;
     text-align: left;
   }
 
   @media (min-width: $desktop-width) {
     grid-template-columns: minmax(190px, 1fr) 370px 47px 646px minmax(190px, 1fr);
-    grid-template-rows: 80px auto auto 52px auto;
+    grid-template-rows: 80px minmax(120px, auto) minmax(20px, auto) minmax(54px, auto) minmax(132px, 1fr);
     padding: 0;
+    clear: both;
   }
 }
+
+/* -------------------------------------------------------- */
+/* Заголовок */
+/* -------------------------------------------------------- */
 
 .hero__title {
   margin-bottom: 25px;
@@ -90,6 +103,10 @@
   }
 }
 
+/* -------------------------------------------------------- */
+/* Слоган */
+/* -------------------------------------------------------- */
+
 .hero__slogan {
   @include font-settings ($font-family-oswald, normal, 400, 14, 14);
   margin: 0 0 29px;
@@ -104,39 +121,59 @@
   }
 
   @media (min-width: $desktop-width) {
+    margin-bottom: 52px;
     grid-column: 2/4;
     grid-row: 3/4;
   }
 }
 
+/* -------------------------------------------------------- */
+/* Кнопка */
+/* -------------------------------------------------------- */
+
 .hero__button {
+  margin-top: 3px;
+
   @media (min-width: $tablet-width) {
     grid-column: 2/3;
     grid-row: 3/4;
     width: fit-content;
     height: fit-content;
     margin-top: 30px;
-    padding: 15px 26px;
-    font-size: 20px;
-    line-height: 26px;
   }
 
   @media (min-width: $desktop-width) {
     grid-column: 2/3;
-    grid-row: 5/6;
+    grid-row: 4/5;
+    margin-top: 0;
   }
 }
 
+/* -------------------------------------------------------- */
+/* Фотография банки с едой */
+/* -------------------------------------------------------- */
+
 picture:has(.hero__image),
 .hero__image {
+  width: 280px;
+  height: 270px;
+  align-self: center;
+
   @media (min-width: $tablet-width) {
     display: block;
+    width: 709px;
+    height: 609px;
     grid-column: 1/-1;
     grid-row: 3/4;
   }
 
   @media (min-width: $desktop-width) {
+    position: relative;
+    left: -2px;
+    width: 552px;
+    height: 499px;
     grid-column: 3/5;
     grid-row: 1/-1;
+    align-self: self-start;
   }
 }

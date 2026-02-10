@@ -1,5 +1,44 @@
 /* здесь используйте классы для блока каталога с второстепенными товарами */
 
+/* -------------------------------------------------------- */
+/* Заголовок блока */
+/* -------------------------------------------------------- */
+
+.catalog-secondary__title {
+  display: grid;
+  grid-template-columns: 20px auto 1fr;
+  padding-top: 24px;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    background-image: linear-gradient(to bottom, transparent 50%, $border-color-accent 50%, transparent calc(50% + 2px));
+  }
+
+  &::before {
+    margin-right: 40px;
+  }
+
+  &::after {
+    margin-left: 40px;
+  }
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: 70px auto 1fr;
+    padding-top: 74px;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-template-columns: calc(50% - 610px) auto minmax(calc(50% - 610px), 1fr);
+    padding-top: 71px;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Список доп. товаров */
+/* -------------------------------------------------------- */
+
 .catalog-secondary__list {
   display: grid;
   padding: 36px 20px 0;
@@ -13,12 +52,15 @@
   @media (min-width: $desktop-width) {
     display: grid;
     grid-template-columns: 896px 245px;
-    grid-template-rows: repeat(4, 1fr);
     column-gap: 80px;
     justify-content: center;
     padding: 80px 0 0;
   }
 }
+
+/* -------------------------------------------------------- */
+/* Карточка товара */
+/* -------------------------------------------------------- */
 
 .catalog-secondary__item {
   border-top: 1px solid $border-color-secondary;
@@ -31,25 +73,31 @@
   @media (min-width: $tablet-width) {
     border: 1px solid $border-color-secondary;
     border-bottom: none;
+
+    &:nth-last-child(2) {
+      margin-bottom: 68px;
+    }
   }
 
   @media (min-width: $desktop-width) {
-    border: initial;
+    border: none;
+    border-top: 1px solid $border-color-secondary;
+
+    &:nth-last-child(2) {
+      margin-bottom: 0;
+      border-bottom: 1px solid $border-color-secondary;
+    }
   }
 }
 
-.catalog-secondary__title {
-  padding: 25px 20px 0;
-
-  @media (min-width: $tablet-width) {
-    padding: 74px 0 0;
-  }
-}
+/* -------------------------------------------------------- */
+/* Карточка с оффером/подарком */
+/* -------------------------------------------------------- */
 
 .catalog-secondary__offer {
   display: flex;
   flex-direction: column;
-  padding: 187px 60px 43px;
+  padding: 187px 50px 43px;
   min-height: 290px;
   background-color: $bg-color-accent;
   border: none;
@@ -67,7 +115,8 @@
   background-repeat: no-repeat;
 
   @media (min-width: $tablet-width) {
-    margin-top: 70px;
+    padding: 71px 125px 69px 200px;
+    min-height: 200px;
     background-image:
       url("../../icons/stack.svg#gift"),
       linear-gradient(rgba($bg-color-accent, 0.85)),
@@ -77,12 +126,14 @@
         url("../../images/catalog/offer-bg-tablet@2x.jpg") type("image/ipg") 2x,
         url("../../images/catalog/offer-bg-tablet@1x.jpg") type("image/jpg") 1x,
       );
+    background-size: 80px 83px, auto, cover;
+    background-position: 77px center, center, center;
   }
 
   @media (min-width: $desktop-width) {
     grid-column: 2/3;
-    grid-row: 1/-1;
-    margin-top: 0;
+    grid-row: 1/999;
+    padding: 185px 42px 43px;
     background-image:
       url("../../icons/stack.svg#gift"),
       linear-gradient(rgba($bg-color-accent, 0.85)),
@@ -92,6 +143,7 @@
         url("../../images/catalog/offer-bg-desk@2x.jpg") type("image/ipg") 2x,
         url("../../images/catalog/offer-bg-desk@1x.jpg") type("image/jpg") 1x,
       );
+    background-position: center 56px, center, center;
   }
 }
 
@@ -102,4 +154,14 @@
   line-height: 20px;
   text-align: center;
   color: $text-color-inverse;
+
+  @media (min-width: $tablet-width) {
+    align-self: end;
+    max-width: 161px;
+    text-align: left;
+  }
+
+  @media (min-width: $desktop-width) {
+    text-align: center;
+  }
 }
