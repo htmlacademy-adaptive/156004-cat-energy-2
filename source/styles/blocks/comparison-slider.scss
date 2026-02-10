@@ -1,0 +1,87 @@
+/* здесь используйте классы для блока сравнения до/после */
+
+.comparison-slider {
+  position: relative;
+}
+
+/* -------------------------------------------------------- */
+/* Фотографии */
+/* -------------------------------------------------------- */
+
+.comparison-slider__image,
+picture:has(.comparison-slider__image) {
+  position: absolute;
+  width: 280px;
+  height: 256px;
+
+  @media (min-width: $tablet-width) {
+    width: 560px;
+    height: 512px;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Ручка для переключения */
+/* -------------------------------------------------------- */
+
+.comparison-slider__handle {
+  position: absolute;
+  display: flex;
+  left: calc(50% - 2px);
+  height: 100%;
+  width: 4px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: $button-color-secondary;
+  border: none;
+  border-radius: 2px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
+
+  &::before {
+    display: block;
+    background-color: $bg-color-primary;
+    border-radius: 50%;
+    border: 2px solid $button-color-secondary;
+  }
+
+  &::after {
+    background-color: $icon-color-secondary;
+    mask-image: url("../../icons/stack.svg#arrows-opposite");
+    mask-size: 24px 18px;
+    mask-position: center;
+    mask-repeat: no-repeat;
+  }
+
+  &:hover,
+  &:hover::after {
+    background-color: $bg-color-accent;
+  }
+
+  &:hover::before {
+    border-color: $border-color-accent;
+  }
+
+  &:active,
+  &:active::after {
+    background-color: rgba($bg-color-accent, 0.6);
+  }
+
+  &:active::before {
+    border-color: rgba($border-color-accent, 0.6);
+  }
+
+  &:disabled,
+  &:disabled::before,
+  &:disabled::after {
+    opacity: 0.6;
+  }
+}

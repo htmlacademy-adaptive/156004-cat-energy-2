@@ -1,0 +1,234 @@
+/* здесь используйте классы для блока с программами похудения */
+
+.programs {
+  padding: 20px 20px 0;
+
+  @media (min-width: $tablet-width) {
+    padding: 0 30px 45px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 134px 0 0;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Список программ для котов */
+/* -------------------------------------------------------- */
+
+.programs__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: $tablet-width) {
+    gap: 30px;
+  }
+
+  @media (min-width: $desktop-width) {
+    display: grid;
+    grid-template-columns: 570px 570px;
+    gap: 80px;
+    justify-content: center;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Карточка списка */
+/* -------------------------------------------------------- */
+
+.programs__item {
+  position: relative;
+  padding: 30px 20px 10px;
+  background-color: $bg-color-secondary;
+
+  &::before {
+    content: "";
+    top: 24px;
+    left: 20px;
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $bg-color-accent;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background-repeat: no-repeat;
+  }
+
+  @media (min-width: $tablet-width) {
+    display: flex;
+    flex-direction: column;
+    min-height: 372px;
+    padding: 77px 316px 53px 52px;
+
+    &::before {
+      top: 92px;
+      right: 63px;
+      left: auto;
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 77px 60px 55px 52px;
+
+    &::before {
+      top: 47px;
+      right: auto;
+      left: 52px;
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  &--slim::after {
+    top: 21px;
+    left: 27px;
+    width: 36px;
+    height: 50px;
+    background-image: url("../../icons/stack.svg#cat-slim");
+
+    @media (min-width: $tablet-width) {
+      top: 81px;
+      right: 93px;
+      left: auto;
+      width: 140px;
+      height: 194px;
+    }
+
+    @media (min-width: $desktop-width) {
+      top: 41px;
+      right: auto;
+      left: 67px;
+      width: 70px;
+      height: 97px;
+    }
+  }
+
+  &--pro::after {
+    top: 35px;
+    left: 13px;
+    width: 67px;
+    height: 28px;
+    background-image: url("../../icons/stack.svg#cat-pro");
+
+    @media (min-width: $tablet-width) {
+      top: 135px;
+      right: 29px;
+      left: auto;
+      width: 268px;
+      height: 112px;
+    }
+
+    @media (min-width: $desktop-width) {
+      top: 67px;
+      right: auto;
+      left: 33px;
+      width: 134px;
+      height: 56px;
+    }
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Заголовок карточки */
+/* -------------------------------------------------------- */
+
+.programs__title {
+  margin: 0 0 29px 70px;
+  line-height: 37px;
+  text-transform: uppercase;
+
+  @media (min-width: $tablet-width) {
+    margin: 0 0 24px;
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin: 0 0 73px 162px;
+  }
+}
+
+.programs__description {
+  margin: 0;
+  color: $text-color-secondary;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin: 22px 0 7px;
+    background-color: $border-color-secondary;
+
+    @media (min-width: $tablet-width) {
+      content: none;
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 0 48px;
+  }
+
+  @media (min-width: $desktop-width) {
+    margin-bottom: 23px;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Ссылка на страницу с программой */
+/* -------------------------------------------------------- */
+
+.programs__link {
+  @include font-settings($font-family-oswald, normal, 400, 16, 16);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 0;
+  color: inherit;
+  text-transform: uppercase;
+
+  &::after {
+    content: "";
+    display: block;
+    flex-shrink: 0;
+    width: 32px;
+    height: 10px;
+    mask-image: url("../../icons/stack.svg#arrow-long");
+    background-color: $icon-color-primary;
+    mask-repeat: no-repeat;
+    mask-position: -8px center;
+    mask-size: 32px 10px;
+    transition: 300ms;
+  }
+
+  &:hover::after {
+    transition: 300ms;
+    mask-position: left center;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  @media (min-width: $tablet-width) {
+    gap: 26px;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 4px 0;
+    margin-top: auto;
+  }
+}

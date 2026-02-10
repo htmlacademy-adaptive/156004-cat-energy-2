@@ -1,0 +1,71 @@
+/* здесь используйте классы для основного блока каталога */
+
+.catalog {
+  @media (min-width: $desktop-width) {
+    display: grid;
+    grid-template-columns: 1220px;
+    justify-content: center;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Заголовок блока */
+/* -------------------------------------------------------- */
+
+.catalog__title {
+  padding: 27px 20px 0;
+  border-top: 1px solid $border-color-secondary;
+
+  @media (min-width: $tablet-width) {
+    padding: 40px 30px 84px;
+    border: none;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 44px 0 84px;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Список карточек товаров */
+/* -------------------------------------------------------- */
+
+.catalog__list {
+  display: grid;
+  padding: 40px 0 0;
+  margin: 0;
+  list-style: none;
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    padding: 0 30px;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 63px 80px;
+    padding: 0;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Карточка товара */
+/* -------------------------------------------------------- */
+
+.catalog__item {
+  border-top: 1px solid $border-color-secondary-subtler;
+
+  @media (min-width: $tablet-width) {
+    border: none;
+  }
+}
+
+.catalog__item + .more-products {
+  border-bottom: 1px solid $border-color-secondary;
+
+  @media (min-width: $tablet-width) {
+    margin-top: 81px;
+    border: 2px solid $border-color-secondary-subtlest;
+  }
+}

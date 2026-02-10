@@ -1,0 +1,36 @@
+/* здесь используйте классы для заголовков */
+
+.title {
+  @include font-settings($font-family-oswald, normal, 400, 24, 24);
+  margin: 0;
+
+  @media (min-width: $tablet-width) {
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  @media (min-width: $desktop-width) {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  &--xl {
+    font-size: 36px;
+    line-height: 36px;
+
+    @media (min-width: $tablet-width) {
+      font-size: 60px;
+      line-height: 60px;
+    }
+  }
+
+  &--sm {
+    font-size: 16px;
+    line-height: 20px;
+
+    @media (min-width: $tablet-width) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+}

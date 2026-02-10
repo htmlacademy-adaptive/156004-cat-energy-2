@@ -1,0 +1,126 @@
+/* здесь используйте классы для блока с адресом */
+
+.address {
+  @media (min-width: $desktop-width) {
+    display: grid;
+    grid-template-columns: minmax(110px, 1fr) 565px 655px minmax(110px, 1fr);
+    grid-template-rows: 95px 1fr 105px;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Блок с адресом */
+/* -------------------------------------------------------- */
+
+.address__wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 26px 20px;
+
+  @media (min-width: $tablet-width) {
+    padding: 60px 70px;
+  }
+
+  @media (min-width: $desktop-width) {
+    z-index: 1;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    padding: 60px 80px;
+    background-color: $bg-color-primary;
+  }
+
+  &--catalog {
+    background-color: $bg-color-secondary;
+
+    @media (min-width: $desktop-width) {
+      background-color: $bg-color-primary;
+    }
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Заголовок блока */
+/* -------------------------------------------------------- */
+
+.address__invite {
+  @include font-settings($font-family-oswald, normal, 400, 16, 20);
+  max-width: 140px;
+  margin: 0;
+  color: $text-color-tertiary;
+  text-transform: uppercase;
+
+  @media (min-width: $tablet-width) {
+    max-width: 164px;
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Адрес */
+/* -------------------------------------------------------- */
+
+.address__text {
+  max-width: 140px;
+  margin: 0;
+  font-style: normal;
+  line-height: 20px;
+  color: $text-color-secondary;
+
+  @media (min-width: $tablet-width) {
+    max-width: 157px;
+    font-size: 16px;
+    text-align: right;
+
+    span {
+      display: inline-block;
+      margin-top: 20px;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    text-align: left;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Блок с картой */
+/* -------------------------------------------------------- */
+
+.address__map {
+  height: 362px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  @media (min-width: $tablet-width) {
+    height: auto;
+    min-height: 400px;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+  }
+}
+
+/* Фото карты, как запасной вариант */
+
+picture:has(.address__map-img),
+.address__map-img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+
+  @media (min-width: $tablet-width) {
+    height: 400px;
+  }
+
+  @media (min-width: $desktop-width) {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+  }
+}

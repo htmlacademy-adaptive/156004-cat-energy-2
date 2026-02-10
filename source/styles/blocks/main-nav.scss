@@ -1,0 +1,185 @@
+/* Здесь используйте классы для основной навигации */
+
+.main-nav {
+  display: flex;
+}
+/* -------------------------------------------------------- */
+/* Кнопка меню */
+/* -------------------------------------------------------- */
+
+.main-nav__toggle {
+  padding: 0;
+  margin-right: 9px;
+  border: none;
+  background: none;
+
+  &::before {
+    content: "";
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    background-color: $icon-color-primary;
+    border: none;
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  @media (min-width: $tablet-width) {
+    display: none;
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Список пунктов меню */
+/* -------------------------------------------------------- */
+
+.main-nav__list {
+  display: flex;
+  position: absolute;
+  top: 65px;
+  right: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  text-align: center;
+  list-style: none;
+  background-color: $bg-color-primary;
+
+  @media (min-width: $tablet-width) {
+    position: relative;
+    top: 0;
+    width: auto;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    margin-left: auto;
+    gap: 10px 33px;
+    background-color: transparent;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding-left: 20px;
+  }
+
+  &--light {
+    @media (min-width: $desktop-width) {
+      color: $text-color-inverse;
+    }
+  }
+
+  &--light .main-nav__link--active::after {
+    @media (min-width: $desktop-width) {
+      border-color: $border-color-inverse;
+    }
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Настройка меню в мобильной версии */
+/* -------------------------------------------------------- */
+
+@media (max-width: $tablet-width - 1px) {
+  .main-nav--closed .main-nav__toggle::before {
+    mask-size: 24px 24px;
+    mask-position: 4px center;
+    mask-image: url("../../icons/stack.svg#burger");
+  }
+
+  .main-nav--closed .main-nav__list {
+    display: none;
+  }
+
+  .main-nav--opened .main-nav__toggle::before {
+    mask-size: 18px 18px;
+    mask-image: url("../../icons/stack.svg#close");
+  }
+
+  .main-nav--nojs {
+    &.main-nav {
+      grid-row: 2/3;
+      grid-column: 1/-1;
+    }
+
+    .main-nav__toggle {
+      display: none;
+    }
+
+    .main-nav__list {
+      display: block;
+      position: static;
+    }
+  }
+}
+
+/* -------------------------------------------------------- */
+/* Пункты меню */
+/* -------------------------------------------------------- */
+
+.main-nav__item {
+  position: relative;
+  border-top: 1px solid $border-color-secondary-subtle;
+
+  &:last-child {
+    border-bottom: 1px solid $border-color-secondary-subtle;
+  }
+
+  @media (min-width: $tablet-width) {
+    border: none;
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+.main-nav__link {
+  @include font-settings($font-family-oswald, normal, 400, 20, 20);
+  display: block;
+  padding: 22px 20px 23px;
+  color: inherit;
+  text-transform: uppercase;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+
+  @media (min-width: $tablet-width) {
+    padding: 14px 0 12px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 16px 0 13px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  &--active::after {
+    @media (min-width: $tablet-width) {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 4px;
+      width: 100%;
+      border-bottom: 2px solid $border-color-accent;
+    }
+
+    @media (min-width: $desktop-width) {
+      bottom: 5px;
+    }
+  }
+}
