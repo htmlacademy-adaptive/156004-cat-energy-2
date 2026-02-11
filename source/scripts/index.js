@@ -17,7 +17,7 @@ navToggle.addEventListener('click', () => {
   }
 });
 
-/* тут карта */
+/* Яндекс карта */
 
 ymaps.ready(() => {
   // Исходные координаты метки
@@ -103,3 +103,14 @@ ymaps.ready(() => {
   // Начинаем наблюдение за контейнером
   resizeObserver.observe(mapContainer);
 });
+
+/* Слайдер сравнения изображений */
+
+const $compare = document.querySelector('.comparison-slider');
+const $input = document.querySelector('.comparison-slider__input');
+
+$input.addEventListener('input', () => {
+  $compare.style.setProperty('--mask-width', `${$input.value}%`);
+});
+
+$compare.style.setProperty('--mask-width', `${$input.value}%`);

@@ -1,41 +1,89 @@
 /* здесь используйте классы для блока сравнения до/после */
 
 .comparison-slider {
+  --mask-width: 50%;
   position: relative;
+  width: clamp(280px, 100vw - 40px, 560px);
+  height: auto;
+  color: $button-color-secondary;
+  transition: 300ms;
+
+  &:hover,
+  &:focus-within {
+    color: $button-color-accent;
+    transition: 300ms;
+  }
+
+  &:active {
+    color: rgba($button-color-accent, 0.6);
+    transition: 300ms;
+  }
 }
 
 /* -------------------------------------------------------- */
 /* Фотографии */
 /* -------------------------------------------------------- */
 
-.comparison-slider__image,
-picture:has(.comparison-slider__image) {
+.comparison-slider__image--before {
+  object-fit: cover;
+  object-position: left;
+  width: var(--mask-width);
+  height: 100%;
   position: absolute;
-  width: 280px;
-  height: 256px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+  background-image: linear-gradient($bg-color-secondary-bold);
 
   @media (min-width: $tablet-width) {
-    width: 560px;
-    height: 512px;
+    background-image: linear-gradient(to bottom, $bg-color-primary 151px, $bg-color-secondary-bold 151px);
   }
+
+  @media (min-width: $desktop-width) {
+    background-image: linear-gradient(to bottom, $bg-color-primary 135px, $bg-color-secondary-bold 135px);
+  }
+}
+
+.comparison-slider__image--after {
+  width: 100%;
+  display: block;
 }
 
 /* -------------------------------------------------------- */
 /* Ручка для переключения */
 /* -------------------------------------------------------- */
 
-.comparison-slider__handle {
+.comparison-slider__input {
   position: absolute;
-  display: flex;
-  left: calc(50% - 2px);
+  z-index: 2;
+  appearance: none;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: col-resize;
+  background-color: transparent;
+}
+
+.comparison-slider__control {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: var(--mask-width);
+  display: flex;
   width: 4px;
+  height: 100%;
   padding: 0;
   justify-content: center;
   align-items: center;
-  background-color: $button-color-secondary;
+  background-color: currentColor;
   border: none;
   border-radius: 2px;
+  transform: translate(-50%);
+  pointer-events: none;
 
   &::before,
   &::after {
@@ -50,11 +98,11 @@ picture:has(.comparison-slider__image) {
     display: block;
     background-color: $bg-color-primary;
     border-radius: 50%;
-    border: 2px solid $button-color-secondary;
+    border: 2px solid currentColor;
   }
 
   &::after {
-    background-color: $icon-color-secondary;
+    background-color: currentColor;
     mask-image: url("../../icons/stack.svg#arrows-opposite");
     mask-size: 24px 18px;
     mask-position: center;
@@ -63,20 +111,20 @@ picture:has(.comparison-slider__image) {
 
   &:hover,
   &:hover::after {
-    background-color: $bg-color-accent;
+    background-color: currentColor;
   }
 
   &:hover::before {
-    border-color: $border-color-accent;
+    border-color: currentColor;
   }
 
   &:active,
   &:active::after {
-    background-color: rgba($bg-color-accent, 0.6);
+    background-color: currentColor;
   }
 
   &:active::before {
-    border-color: rgba($border-color-accent, 0.6);
+    border-color: currentColor;
   }
 
   &:disabled,

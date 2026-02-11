@@ -121,9 +121,9 @@
               <source media="(min-width: 768px)" width="560" height="512" type="image/png" srcset="images/index/cat-after-tablet-desk@1x.png 1x, images/index/cat-after-tablet-desk@2x.png 2x">
               <img class="comparison-slider__image comparison-slider__image--after" width="280" height="256" src="images/index/cat-after-mobile@1x.png" srcset="images/index/cat-after-mobile@2x.png 2x" alt="Фото кота после похудения.">
             </picture>
-            <button class="comparison-slider__handle" type="button">
-              <span class="visually-hidden">Потяните влево или вправо для сравнения</span>
-            </button>
+            <label class="visually-hidden" for="slider">Потяните влево или вправо для сравнения Фотографий</label>
+            <input class="comparison-slider__input" type="range" min="0" max="100" value="50" id="slider" name="slider-handle">
+            <div class="comparison-slider__control"></div>
           </div>
         </section>
       </main>
